@@ -31,4 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/spinner6" />
+    <Spinner
+        android:id="@+id/spinner_colors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
