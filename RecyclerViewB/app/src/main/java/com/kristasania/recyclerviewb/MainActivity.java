@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +29,6 @@ public class MainActivity extends AppCompatActivity
     private List<MahasiswaModel> mahasiswaModelList;
     private MahasiswaAdapter ma;
     private TextView _txtMahasiswaCount, _txtSearch;
-    private ImageButton _btnSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -71,7 +69,6 @@ public class MainActivity extends AppCompatActivity
 
         for (MahasiswaModel item: mahasiswaModelList){
             if (item.getNama().toLowerCase().contains(text.toLowerCase())){
-                // Toast.makeText(MainActivity.this, "test", Toast.LENGTH_SHORT).show();
                 filteredList.add(item);
             }
         }
@@ -113,18 +110,6 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    private void initAddButton() {
-        _addButton = findViewById(R.id.addButton);
-
-        _addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                loadRecyclerView();
-            }
-        });
-    }
-
     private void initRefreshButton(){
         _refreshButton = findViewById(R.id.refreshButton);
 
@@ -132,6 +117,18 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 loadRecyclerView();
+            }
+        });
+    }
+
+    private void initAddButton() {
+        _addButton = findViewById(R.id.addButton);
+
+        _addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), AddMahasiswaActivity.class);
+                startActivity(intent);
             }
         });
     }
