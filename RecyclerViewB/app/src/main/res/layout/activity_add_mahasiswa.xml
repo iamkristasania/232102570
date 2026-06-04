@@ -1,130 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true"
     tools:context=".AddMahasiswaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="24dp">
 
+        <!-- Header -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:text="Mahasiswa Baru"
-            android:textSize="25sp"
+            android:textColor="#111827"
+            android:textSize="28sp"
             android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="NIM" />
+            android:layout_marginBottom="32dp"
+            android:text="Masukkan kelengkapan data di bawah ini"
+            android:textColor="#6B7280"
+            android:textSize="14sp" />
 
-        <EditText
-            android:id="@+id/nimEditText"
+        <!-- Form NIM -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nimEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="NIM"
+                android:inputType="number"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Form Nama -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/namaEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nama Lengkap"
+                android:inputType="textCapWords"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Form Jenis Kelamin -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama" />
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="6dp"
+            android:text="Jenis Kelamin"
+            android:textColor="#6B7280"
+            android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/namaEditText"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#F3F4F6"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!-- Ikon Dropdown Bawaan Android -->
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@android:drawable/arrow_down_float"
+                    app:tint="#6B7280" />
+
+                <!-- Spinner diletakkan di atas agar bisa diklik seluruh areanya -->
+                <Spinner
+                    android:id="@+id/jenisKelaminSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:entries="@array/jenisKelaminArray"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="48dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Form Tempat Lahir -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords" />
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tempatLahirEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tempat Lahir"
+                android:inputType="textCapWords"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Form Tanggal Lahir -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tanggalLahirEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tanggal Lahir (yyyy-mm-dd)"
+                android:inputType="date"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Form Alamat -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/alamatEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:hint="Alamat Lengkap"
+                android:inputType="textCapSentences|textMultiLine"
+                android:lines="3"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Form Jurusan -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jenis Kelamin" />
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="6dp"
+            android:text="Jurusan / Prodi"
+            android:textColor="#6B7280"
+            android:textSize="12sp" />
 
-        <Spinner
-            android:id="@+id/jenisKelaminSpinner"
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/jenisKelaminArray" />
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#F3F4F6"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@android:drawable/arrow_down_float"
+                    app:tint="#6B7280" />
+
+                <Spinner
+                    android:id="@+id/jpSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:entries="@array/jpArray"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="48dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Form Status Pernikahan -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tempat Lahir" />
+            android:layout_marginStart="4dp"
+            android:layout_marginBottom="6dp"
+            android:text="Status Pernikahan"
+            android:textColor="#6B7280"
+            android:textSize="12sp" />
 
-        <EditText
-            android:id="@+id/tempatLahirEditText"
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginBottom="16dp"
+            app:cardBackgroundColor="#F3F4F6"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="16dp"
+                    android:importantForAccessibility="no"
+                    android:src="@android:drawable/arrow_down_float"
+                    app:tint="#6B7280" />
+
+                <Spinner
+                    android:id="@+id/statusNikahSpinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:entries="@array/statusNikahArray"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="48dp" />
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Form Tahun Masuk -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapWords" />
+            android:layout_marginBottom="32dp"
+            app:boxBackgroundColor="#F3F4F6"
+            app:boxCornerRadiusBottomEnd="12dp"
+            app:boxCornerRadiusBottomStart="12dp"
+            app:boxCornerRadiusTopEnd="12dp"
+            app:boxCornerRadiusTopStart="12dp"
+            app:boxStrokeWidth="0dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:hintTextColor="#6B7280">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Lahir (yyyy-mm-dd)" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tahunMasukEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tahun Masuk"
+                android:inputType="number"
+                android:textColor="#111827" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/tanggalLahirEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="date" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Alamat" />
-
-        <EditText
-            android:id="@+id/alamatEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textCapSentences" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jurusan / Prodi" />
-
-        <Spinner
-            android:id="@+id/jpSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/jpArray" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status Pernikahan" />
-
-        <Spinner
-            android:id="@+id/statusNikahSpinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:entries="@array/statusNikahArray" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tahun Masuk" />
-
-        <EditText
-            android:id="@+id/tahunMasukEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="number" />
-
-        <Button
+        <!-- Tombol Simpan -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/saveButton"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Simpan" />
+            android:layout_height="60dp"
+            android:layout_marginBottom="16dp"
+            android:text="Simpan Data"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#2563EB"
+            app:cornerRadius="12dp" />
 
     </LinearLayout>
 </ScrollView>
